@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <install>
+	<statement>
+	    <type>sql</type>
+	    <instruction>
+		CREATE TABLE IF NOT EXISTS `mod_kuas_consultation_warning` (
+		`kcwarning_id` int(20) NOT NULL AUTO_INCREMENT COMMENT '學習預警編號',
+		`kcunit_id` int(20) NOT NULL COMMENT '單位編號',
+		`kcemployee_user_id` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT '教師使用者編號',
+		`kcstudent_user_id` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT '學生編號',
+		`kcwarning_sem_year` int(10) NOT NULL COMMENT '學年度',
+		`kcwarning_sem_term` int(10) NOT NULL COMMENT '學期',
+		`kcclass_name` varchar(16) COLLATE utf8_unicode_ci NOT NULL COMMENT '班級名稱',
+		`kcwarning_type` enum('no','21','32') COLLATE utf8_unicode_ci NOT NULL COMMENT '預警型態',
+		`kcwarning_poor_schoolwork` enum('no','21','32') COLLATE utf8_unicode_ci NOT NULL COMMENT '課業不佳',
+		`kcwarning_advice_times` int(10) NOT NULL COMMENT '通知次數',
+		`kcwarning_poor_schoolwork_subject` text COLLATE utf8_unicode_ci NOT NULL COMMENT '課業不佳預警科目',
+		`kcwarning_subject` text COLLATE utf8_unicode_ci NOT NULL COMMENT '期中預警科目',
+		PRIMARY KEY (`kcwarning_id`)
+		) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='學習預警' AUTO_INCREMENT=1 ;
+	    </instruction>
+	</statement>
+    </install>
+    <uninstall>
+	<statement>
+	    <type>sql</type>
+	    <instruction>DROP TABLE mod_kuas_consultation_warning;</instruction>
+	</statement>
+    </uninstall>
+    <upgrade>
+	<v1.00>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` CHANGE  `kcwarning_poor_schoolwork`  `kcwarning_poor_schoolwork` ENUM(  '21',  '32',  'no' ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT  '課業不佳';
+		</instruction>
+	    </statement>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` ADD  `kcwarning_poor_schoolwork_subject` TEXT NULL COMMENT  '課業不佳預警科目' AFTER `kcwarning_advice_times` ;
+		</instruction>
+	    </statement>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` ADD  `kcwarning_subject` TEXT NULL COMMENT  '期中預警科目' AFTER `kcwarning_poor_schoolwork_subject` ;
+		</instruction>
+	    </statement>
+	</v1.00>
+	<v1.01>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` CHANGE  `kcwarning_poor_schoolwork`  `kcwarning_poor_schoolwork` ENUM(  '21',  '32',  'no' ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT  '課業不佳';
+		</instruction>
+	    </statement>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` CHANGE  `kcwarning_poor_schoolwork_subject`  `kcwarning_poor_schoolwork_subject` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT  '課業不佳預警科目';
+		</instruction>
+	    </statement>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` CHANGE  `kcwarning_subject`  `kcwarning_subject` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT  '期中預警科目';
+		</instruction>
+	    </statement>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+		</instruction>
+	    </statement>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` CHANGE  `kcemployee_user_id`  `kcemployee_user_id` VARCHAR( 64 ) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT  '教師使用者編號';
+		</instruction>
+	    </statement>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` CHANGE  `kcstudent_user_id`  `kcstudent_user_id` VARCHAR( 64 ) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT  '學生編號';
+		</instruction>
+	    </statement>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` CHANGE  `kcwarning_type`  `kcwarning_type` ENUM(  'no',  '21',  '32' ) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT  '預警型態';
+		</instruction>
+	    </statement>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` CHANGE  `kcwarning_poor_schoolwork`  `kcwarning_poor_schoolwork` ENUM(  'no',  '21',  '32' ) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT  '課業不佳';
+		</instruction>
+	    </statement>
+	</v1.01>
+	<v1.02>
+	    <statement>
+		<type>sql</type>
+		<instruction>
+		    ALTER TABLE  `mod_kuas_consultation_warning` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+		</instruction>
+	    </statement>
+	</v1.02>
+    </upgrade>
+</module>

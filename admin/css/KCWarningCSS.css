@@ -1,0 +1,52 @@
+/* 
+    Document   : KLWarningCSS
+    Created on : 2013/9/16, 下午 10:30:25
+    Author     : 施孟廷
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.okButton {
+	background: transparent url(../../../../modules/kuas_consultation_warning/admin/tmpl/images/ok.png) ;
+	height: 16px;
+	text-align: center;
+	width: 16px;
+}
+.mailButton {
+	background: transparent url(../../../../modules/kuas_consultation_warning/admin/tmpl/images/mail-forward.png) ;
+	height: 16px;
+	text-align: center;
+	width: 16px;
+}
+.pdfButton {
+	background: transparent url(../../../../modules/kuas_consultation_warning/admin/tmpl/images/pdf.gif) ;
+	height: 16px;
+	text-align: center;
+	width: 16px;
+}
+.excelButton {
+	background: transparent url(../../../../modules/kuas_consultation_warning/admin/tmpl/images/xls.gif) ;
+	height: 16px;
+	text-align: center;
+	width: 16px;
+}
+.check{
+    background: transparent url(../../../../modules/kuas_consultation_warning/admin/tmpl/images/checkbox.png) ;
+	height: 16px;
+	text-align: center;
+	width: 16px;
+    
+}
+.menuTh{
+    width: 100px;
+}
+.menuTd{
+    width: 70px;
+}
+.warningMsg{
+    color: red;
+    padding-left: 10px;
+}
+.assignUserGroupDiv:hover{
+	text-decoration:line-through;
+}

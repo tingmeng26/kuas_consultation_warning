@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module_config>
+	<id>kuas_consultation_warning</id>
+	<name>學生預警名單</name>
+	<version>1.03.0012</version>
+	<core>0</core>
+	<description>
+		系所管理者、處室管理者及老師可透過此模組取得學生學習預警名單，並透過此模組寄發輔導通知信件提醒學生來預約諮詢，進而了解學生的狀況。
+	</description>
+	<constriants>
+		<system min="5.24" max="6.99" />
+		<dependence>
+			<depend mod_id="kuas_consultation" min="1.00.0000" max="9.99.9999" />
+	   
+		</dependence>
+		<extensions></extensions>
+		<multisite support=""/>
+		<for_profile profile="kuas_consultation_admin_profile,kuas_consultation_tutor_profile" />
+		<for_sitetype sitetype="" />
+	</constriants>	
+	<front_type>
+		<front_element name ="" enabled="false" />
+		<front_page name =""  enabled="false" />							
+		<front_component enabled="false" />
+		<front_render enabled="false" />	
+	</front_type>
+	<admin_type>	
+		<admin enabled="true" />		
+		<admin_theme_editor enabled="false" />		
+		<admin_theme_layout enabled="false" />		
+		<admin_profile enabled="false"></admin_profile>
+		<admin_site enabled="false"></admin_site>
+	</admin_type>
+</module_config>
